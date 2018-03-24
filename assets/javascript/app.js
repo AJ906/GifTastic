@@ -43,7 +43,7 @@ $(document).on("click",".artGifsButton",function(){
     var type = $(this).data('type');
 
     // Storing our giphy API URL for art images
-    var queryURL = "http://api.giphy.com/v1/gifs/search?q="+type+"&api_key=l0M6WdZ8CWJQSRp8y23fF0RJXEg2mvZR&limit=5"
+    var queryURL = "https://api.giphy.com/v1/gifs/search?q="+type+"&api_key=l0M6WdZ8CWJQSRp8y23fF0RJXEg2mvZR&limit=5"
     
     // Perfoming an AJAX GET request to our queryURL
     $.ajax({
