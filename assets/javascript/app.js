@@ -1,16 +1,16 @@
 //Array for initial arts buttons
 
-var artsArray = ["film", "music", "dance"];
+var topics = ["film", "music", "dance"];
 
-//Function to create buttons with indices from artsArray
+//Function to create buttons with indices from topics
 
-function initializeButtonsFunction(artsArray, newClass, newClassArea){
+function initializeButtonsFunction(topics, newClass, newClassArea){
     $(newClassArea).empty();
-    for (var i=0; i<artsArray.length; i++){
+    for (var i=0; i<topics.length; i++){
         var newButton = $('<button>');
         newButton.addClass(newClass);
-        newButton.attr('data-type',artsArray[i]);
-        newButton.text(artsArray[i]);
+        newButton.attr('data-type',topics[i]);
+        newButton.text(topics[i]);
         $(newClassArea).append(newButton);
     }
 
@@ -18,25 +18,24 @@ function initializeButtonsFunction(artsArray, newClass, newClassArea){
 //Function to display buttons on page
 
 $(function(){
-    initializeButtonsFunction(artsArray,'artGifsButton','#artButtons');
+    initializeButtonsFunction(topics,'artGifsButton','#artButtons');
 })
 
 //Attempt to allow user to add more buttons; not sure why it won't work; looks like it's reloading the page instead of recording/outputting a button that corresponds what the user enters in the search box.
 
-$("#art-input").on('click',function(event){
-    event.preventDefault();
-    
-
-    var faveArtGifs = $('#art-input').val().trim();
-    console.log(faveArtGifs);
-    artsArray.push(faveArtGifs);
-    console.log(artsArray);
-    initializeButtonsFunction(artsArray,'artGifsButton','#artButtons');
-    console.log(faveArtGifs);
-    // return false;
-    console.log(artsArray);
-})
-
+topics.push("writing");
+// $("#addArt").on('click',function(){
+//     //event.preventDefault();
+//     var faveArtGifs = $("#art-input").val();
+//     //console.log(faveArtGifs);
+//     topics.push(faveArtGifs);
+//     // console.log(topics);
+//     // initializeButtonsFunction(topics,'artGifsButton','#artButtons');
+//     // console.log(faveArtGifs);
+//     return false;
+// })
+console.log(topics);
+initializeButtonsFunction(topics,'artGifsButton','#artButtons')
 // Event listener for artGifsButtons
 $(document).on("click",".artGifsButton",function(){
     $('#artGifs').empty();
