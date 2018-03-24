@@ -22,8 +22,18 @@ $(function(){
 })
 
 //Attempt to allow user to add more buttons; not sure why it won't work; looks like it's reloading the page instead of recording/outputting a button that corresponds what the user enters in the search box.
-
+//***WORK ON THIS*** */
 topics.push("writing");
+
+var faveArtGifs = $("#art-input").val();
+console.log(faveArtGifs);
+
+$('body').on('click',function(){
+    
+    topics.push(faveArtGifs);
+    return false;
+})
+//***WORK ABOVE THIS*** */
 // $("#addArt").on('click',function(){
 //     //event.preventDefault();
 //     var faveArtGifs = $("#art-input").val();
@@ -34,9 +44,11 @@ topics.push("writing");
 //     // console.log(faveArtGifs);
 //     return false;
 // })
+
 console.log(topics);
 initializeButtonsFunction(topics,'artGifsButton','#artButtons')
 // Event listener for artGifsButtons
+
 $(document).on("click",".artGifsButton",function(){
     $('#artGifs').empty();
     var type = $(this).data('type');
